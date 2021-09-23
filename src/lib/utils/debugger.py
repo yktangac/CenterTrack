@@ -207,7 +207,9 @@ class Debugger(object):
   def show_all_imgs(self, pause=False, Time=0):
     if 1:
       for i, v in self.imgs.items():
-        cv2.imshow('{}'.format(i), v)
+        #comment the cv2.imshow() for running on remote host
+        #cv2.imshow('{}'.format(i), v)
+        pass
       if not self.with_3d:
         cv2.waitKey(0 if pause else 1)
       else:
