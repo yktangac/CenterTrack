@@ -1,5 +1,6 @@
 # This Fork is for the setup on running in Remote Host
 For remote host, there is a biggest issue with X forwarding display.
+— Modify demo.py and $CenterTrack_Root/src/lib/
 Instead of showing predicted visualization on screen, we adopted saving video.
 # Tracking Objects as Points
 Simultaneous object detection and tracking using center points:
