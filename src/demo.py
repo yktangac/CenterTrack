@@ -100,7 +100,7 @@ def demo(opt):
         out.write(ret['generic'])
         #if not is_video:
         #  cv2.imwrite('../results/demo{}.jpg'.format(cnt), ret['generic'])
-        cv2.imwrite('../results/demo{}.jpg'.format(cnt), ret['generic'])
+        cv2.imwrite('../results/demo{:05}.jpg'.format(cnt), ret['generic'])
       
       # esc to quit and finish saving video
       #Commented out follwing lines for saving the result instead of displaying
