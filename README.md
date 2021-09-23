@@ -1,7 +1,8 @@
 # This Fork is for the setup on running in Remote Host
-For remote host, there is a biggest issue with X forwarding display.
-— Modify demo.py and $CenterTrack_Root/src/lib/
-Instead of showing predicted visualization on screen, we adopted saving video.
+For remote host, there is a biggest issue with X forwarding display.<br>
+— Modify demo.py and $CenterTrack_Root/src/lib/debugger<br>
+— replace the original codec for saving video instead of manually building OpenCv from source to get around the OpenCV license issue <br>  
+Instead of showing predicted visualization on screen, we adopted saving video.<br>
 # Tracking Objects as Points
 Simultaneous object detection and tracking using center points:
 ![](readme/fig2.png)
