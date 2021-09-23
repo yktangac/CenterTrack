@@ -46,8 +46,10 @@ def demo(opt):
   out_name = opt.demo[opt.demo.rfind('/') + 1:]
   print('out_name', out_name)
   if opt.save_video:
-    # fourcc = cv2.VideoWriter_fourcc(*'XVID')
-    fourcc = cv2.VideoWriter_fourcc(*'H264')
+    #fourcc = cv2.VideoWriter_fourcc(*'XVID')
+    #fourcc = cv2.VideoWriter_fourcc(*'H264')
+    #replace codec H264 to 'm','p', '4', 'v'. It works.
+    fourcc = cv2.VideoWriter_fourcc('m', 'p', '4', 'v')
     out = cv2.VideoWriter('../results/{}.mp4'.format(
       opt.exp_id + '_' + out_name),fourcc, opt.save_framerate, (
         opt.video_w, opt.video_h))
@@ -77,7 +79,8 @@ def demo(opt):
       if cnt < opt.skip_first:
         continue
       
-      cv2.imshow('input', img)
+      #comment the cv2.imshow() since running on remote host
+      #cv2.imshow('input', img)
 
       # track or detect the image.
       ret = detector.run(img)
@@ -95,13 +98,15 @@ def demo(opt):
       # save debug image to video
       if opt.save_video:
         out.write(ret['generic'])
-        if not is_video:
-          cv2.imwrite('../results/demo{}.jpg'.format(cnt), ret['generic'])
+        #if not is_video:
+        #  cv2.imwrite('../results/demo{}.jpg'.format(cnt), ret['generic'])
+        cv2.imwrite('../results/demo{}.jpg'.format(cnt), ret['generic'])
       
       # esc to quit and finish saving video
-      if cv2.waitKey(1) == 27:
-        save_and_exit(opt, out, results, out_name)
-        return 
+      #Commented out follwing lines for saving the result instead of displaying
+      #if cv2.waitKey(1) == 27:
+      #  save_and_exit(opt, out, results, out_name)
+      #  return 
   save_and_exit(opt, out, results)
 
 
